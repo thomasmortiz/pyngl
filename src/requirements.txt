@@ -1,0 +1,3 @@
+xlwings==0.15.8
+numpy==1.16.4
+pythonnet==2.4.0

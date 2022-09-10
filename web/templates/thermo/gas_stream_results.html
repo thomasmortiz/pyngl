@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}Gas Stream Results{% endblock %}
+
+{% block content %}
+
+<!--TODO: This shouldn't be a form: Results should be displayed in a table or other container -->
+
+<div class="page-header">
+  <h1>Gas Stream Fractionation Results</h1>
+</div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      {% from "_formhelpers.html" import render_field_no_label %}
+      <form id="resultsForm" method="POST" action="{{ url_for('thermo_app.gas_stream_results_api') }}" role="form">
+        {{ form.hidden_tag() }}
+        <table class="table">
+          <tbody>
+            <tr>
+              <td class="align-middle">Feed Gas Volume</td>
+              <td class="align-middle">{{ render_field_no_label(form.gas_volume, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">Mcf</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Feed Gas Energy</td>
+              <td class="align-middle">{{ render_field_no_label(form.gas_energy, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">MMBtu</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Feed Gas Compressibility Factor</td>
+              <td class="align-middle">{{ render_field_no_label(form.compressibility_factor, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">-</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Feed Gas Real Heating Value</td>
+              <td class="align-middle">{{ render_field_no_label(form.real_gas_heating_value, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">Btu/ft3</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Compound</th>
+              <th>Recovered Volume (gal)</th>
+              <th>Shrink Energy (MMBtu)</th>
+              <th>Value ($)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="align-middle">Ethane, C2</td>
+              <td class="align-middle">{{ render_field_no_label(form.ethane_recovered_volume, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.ethane_shrink_energy, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.ethane_value, class='form-control', readonly="true") }}</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Propane, C3</td>
+              <td class="align-middle">{{ render_field_no_label(form.propane_recovered_volume, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.propane_shrink_energy, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.propane_value, class='form-control', readonly="true") }}</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Isobutane, iC4</td>
+              <td class="align-middle">{{ render_field_no_label(form.i_butane_recovered_volume, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.i_butane_shrink_energy, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.i_butane_value, class='form-control', readonly="true") }}</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Normal Butane, nC4</td>
+              <td class="align-middle">{{ render_field_no_label(form.n_butane_recovered_volume, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.n_butane_shrink_energy, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.n_butane_value, class='form-control', readonly="true") }}</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Isopentane, iC5</td>
+              <td class="align-middle">{{ render_field_no_label(form.i_pentane_recovered_volume, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.i_pentane_shrink_energy, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.i_pentane_value, class='form-control', readonly="true") }}</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Normal Pentane, nC5</td>
+              <td class="align-middle">{{ render_field_no_label(form.n_pentane_recovered_volume, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.n_pentane_shrink_energy, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.n_pentane_value, class='form-control', readonly="true") }}</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Hexane Plus, C6+</td>
+              <td class="align-middle">{{ render_field_no_label(form.hexane_plus_recovered_volume, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.hexane_plus_shrink_energy, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.hexane_plus_value, class='form-control', readonly="true") }}</td>
+            </tr>
+          </tbody>
+        </table>
+        </table>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td class="align-middle">Residue Gas Volume</td>
+              <td class="align-middle">{{ render_field_no_label(form.residue_gas_volume, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">Mcf</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Residue Gas Energy</td>
+              <td class="align-middle">{{ render_field_no_label(form.residue_gas_energy, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">MMBtu</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Residue Gas Compressibility Factor</td>
+              <td class="align-middle">{{ render_field_no_label(form.residue_gas_compressibility_factor, class='form-control', 
+              readonly="true") }}</td>
+              <td class="align-middle">-</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Residue Real Gas Heating Value</td>
+              <td class="align-middle">{{ render_field_no_label(form.residue_real_gas_heating_value, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">Btu/ft3</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Residue Gas Value</td>
+              <td class="align-middle">{{ render_field_no_label(form.residue_gas_value, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">$</td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" class="btn btn-default center-block" onclick="submitForm('resultsForm');">New Gas Stream</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

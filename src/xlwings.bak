@@ -1,0 +1,4 @@
+"USE UDF SERVER","True"
+"PYTHONPATH", O:\Audit_Tools\src
+"INTERPRETER","O:\Audit_Tools\src\miniconda3\pythonw.exe"
+"DEBUG UDFS","False"

@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block title %}Gas Stream Input{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+  <h1>Specify Gas Stream Properties</h1>
+</div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      {% from "_formhelpers.html" import render_field_no_label %}
+      <form id="inputForm" method="POST" action="{{ url_for('thermo_app.gas_stream_input_api') }}" role="form">
+        {{ form.hidden_tag() }}
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Producer</th>
+              <th>Processor</th>
+              <th>Settlement Month</th>
+              <th>Settlement Year</th>
+            </tr>
+            <tr>
+              <td class="align-middle">{{ render_field_no_label(form.producer_name, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.processor_name, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.settlement_month, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.settlement_year, class='form-control') }}</td>
+            </tr>
+            <tr>
+              <th>Compound</th>
+              <th>Mole Fraction</th>
+              <th>Recovery Factor</th>
+              <th>Price</th>
+              <th>Unit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="align-middle">Methane, C1</td>
+              <td class="align-middle">{{ render_field_no_label(form.methane_mole_fraction, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.methane_recovery_factor, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.methane_price, class='form-control') }}</td>
+              <td class="align-middle">$/MMBtu</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Ethane, C2</td>
+              <td class="align-middle">{{ render_field_no_label(form.ethane_mole_fraction, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.ethane_recovery_factor, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.ethane_price, class='form-control') }}</td>
+              <td class="align-middle">$/gal</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Propane, C3</td>
+              <td class="align-middle">{{ render_field_no_label(form.propane_mole_fraction, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.propane_recovery_factor, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.propane_price, class='form-control') }}</td>
+              <td class="align-middle">$/gal</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Isobutane, iC4</td>
+              <td class="align-middle">{{ render_field_no_label(form.i_butane_mole_fraction, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.i_butane_recovery_factor, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.i_butane_price, class='form-control') }}</td>
+              <td class="align-middle">$/gal</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Normal Butane, nC4</td>
+              <td class="align-middle">{{ render_field_no_label(form.n_butane_mole_fraction, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.n_butane_recovery_factor, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.n_butane_price, class='form-control') }}</td>
+              <td class="align-middle">$/gal</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Isopentane, iC5</td>
+              <td class="align-middle">{{ render_field_no_label(form.i_pentane_mole_fraction, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.i_pentane_recovery_factor, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.i_pentane_price, class='form-control') }}</td>
+              <td class="align-middle">$/gal</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Normal Pentane, nC5</td>
+              <td class="align-middle">{{ render_field_no_label(form.n_pentane_mole_fraction, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.n_pentane_recovery_factor, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.n_pentane_price, class='form-control') }}</td>
+              <td class="align-middle">$/gal</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Hexane Plus, C6+</td>
+              <td class="align-middle">{{ render_field_no_label(form.hexane_plus_mole_fraction, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.hexane_plus_recovery_factor, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.hexane_plus_price, class='form-control') }}</td>
+              <td class="align-middle">$/gal</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Carbon Dioxide, CO2</td>
+              <td class="align-middle">{{ render_field_no_label(form.carbon_dioxide_mole_fraction, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.carbon_dioxide_recovery_factor, class='form-control', 
+              readonly="true") }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.carbon_dioxide_price, class='form-control', 
+              readonly="true") }}</td>
+              <td class="align-middle">-</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Hydrogen Sulfide, H2S</td>
+              <td class="align-middle">{{ render_field_no_label(form.hydrogen_sulfide_mole_fraction, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.hydrogen_sulfide_recovery_factor, class='form-control', 
+              readonly="true") }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.hydrogen_sulfide_price, class='form-control', 
+              readonly="true") }}</td>
+              <td class="align-middle">-</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Nitrogen, N2</td>
+              <td class="align-middle">{{ render_field_no_label(form.nitrogen_mole_fraction, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.nitrogen_recovery_factor, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.nitrogen_price, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">-</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Oxygen, O2</td>
+              <td class="align-middle">{{ render_field_no_label(form.oxygen_mole_fraction, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.oxygen_recovery_factor, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.oxygen_price, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">-</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Helium, He</td>
+              <td class="align-middle">{{ render_field_no_label(form.helium_mole_fraction, class='form-control') }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.helium_recovery_factor, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">{{ render_field_no_label(form.helium_price, class='form-control', readonly="true") }}</td>
+              <td class="align-middle">-</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td class="align-middle">Temperature</td>
+              <td class="align-middle">{{ render_field_no_label(form.temperature, class='form-control') }}</td>
+              <td class="align-middle">F</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Pressure</td>
+              <td class="align-middle">{{ render_field_no_label(form.pressure, class='form-control') }}</td>
+              <td class="align-middle">psia</td>
+            </tr>
+            <tr>
+              <td class="align-middle">Volume</td>
+              <td class="align-middle">{{ render_field_no_label(form.volume, class='form-control') }}</td>
+              <td class="align-middle">Mcf</td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" class="btn btn-default center-block" onclick="submitForm('inputForm');">Fractionate</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

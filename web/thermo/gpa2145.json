@@ -1,0 +1,144 @@
+{
+    "library":
+    {
+        "name": "GPA_2145"
+    },
+    "reference_state":
+    {
+        "temperature": 60.0,
+        "pressure": 14.696
+    },
+    "units": [
+        {
+            "temperature": "F",
+            "pressure": "psia",
+            "molar_mass": "lbm/lbmol",
+            "ideal_gas_volume": "ft3 ideal gas/gal liquid",
+            "summation_factor": null,
+            "liquid_ghv": "Btu/gal",
+            "ideal_gas_ghv": "Btu/ft3"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "methane",
+            "molar_mass": 16.0425,
+            "ideal_gas_volume": 59.138,
+            "summation_factor": 0.04438,
+            "liquid_ghv": null,
+            "ideal_gas_ghv": 1010.0
+        },
+        {
+            "name": "ethane",
+            "molar_mass": 30.0690,
+            "ideal_gas_volume": 37.488,
+            "summation_factor": 0.0913,
+            "liquid_ghv": 65897.0,
+            "ideal_gas_ghv": 1769.7
+        },
+        {
+            "name": "propane",
+            "molar_mass": 44.0956,
+            "ideal_gas_volume": 36.391,
+            "summation_factor": 0.1329,
+            "liquid_ghv": 90875.0,
+            "ideal_gas_ghv": 2516.1
+        },
+        {
+            "name": "i_butane",
+            "molar_mass": 58.1222,
+            "ideal_gas_volume": 30.637,
+            "summation_factor": 0.1690,
+            "liquid_ghv": 98924.0,
+            "ideal_gas_ghv": 3251.9
+        },
+        {
+            "name": "n_butane",
+            "molar_mass": 58.1222,
+            "ideal_gas_volume": 31.801,
+            "summation_factor": 0.1801,
+            "liquid_ghv": 102950.0,
+            "ideal_gas_ghv": 3262.3
+        },
+        {
+            "name": "i_pentane",
+            "molar_mass": 72.1488,
+            "ideal_gas_volume": 27.414,
+            "summation_factor": 0.2206,
+            "liquid_ghv": 108880.0,
+            "ideal_gas_ghv": 4000.9
+        },
+        {
+            "name": "n_pentane",
+            "molar_mass": 72.1488,
+            "ideal_gas_volume": 27.658,
+            "summation_factor": 0.2323,
+            "liquid_ghv": 110020.0,
+            "ideal_gas_ghv": 4008.7
+        },
+        {
+            "name": "n_hexane",
+            "molar_mass": 86.1754,
+            "ideal_gas_volume": 24.380,
+            "summation_factor": 0.2973,
+            "liquid_ghv": 115060.0,
+            "ideal_gas_ghv": 4755.9
+        },
+        {
+            "name": "n_heptane",
+            "molar_mass": 100.2019,
+            "ideal_gas_volume": 21.730,
+            "summation_factor": 0.3646,
+            "liquid_ghv": 118660.0,
+            "ideal_gas_ghv": 5502.6
+        },
+        {
+            "name": "n_octane",
+            "molar_mass": 114.2285,
+            "ideal_gas_volume": 19.570,
+            "summation_factor": 0.4326,
+            "liquid_ghv": 121350.0,
+            "ideal_gas_ghv": 6249.0
+        },
+        {
+            "name": "carbon_dioxide",
+            "molar_mass": 44.0095,
+            "ideal_gas_volume": 58.746,
+            "summation_factor": 0.0748,
+            "liquid_ghv": null,
+            "ideal_gas_ghv": null
+        },
+        {
+            "name": "hydrogen_sulfide",
+            "molar_mass": 34.0809,
+            "ideal_gas_volume": 74.16,
+            "summation_factor": 0.0917,
+            "liquid_ghv": 45905.0,
+            "ideal_gas_ghv": 637.10
+        },
+        {
+            "name": "nitrogen",
+            "molar_mass": 28.0134,
+            "ideal_gas_volume": 91.128,
+            "summation_factor": 0.01696,
+            "liquid_ghv": null,
+            "ideal_gas_ghv": null
+        },
+        {
+            "name": "oxygen",
+            "molar_mass": 31.9988,
+            "ideal_gas_volume": 112.95,
+            "summation_factor": 0.02752,
+            "liquid_ghv": null,
+            "ideal_gas_ghv": null
+        },
+        {
+            "name": "helium",
+            "molar_mass": 4.0026,
+            "ideal_gas_volume": 98.641,
+            "summation_factor": null,
+            "liquid_ghv": null,
+            "ideal_gas_ghv": null
+        }
+    ]
+}
